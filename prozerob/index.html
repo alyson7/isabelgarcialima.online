@@ -67,20 +67,24 @@ function getParams() {
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-<script> 
-var back_redirect_back_link = 'https://https://isabelgarcialima.online/redire/';
- 
- 
-history.pushState({}, "", location.href);
-history.pushState({}, "", location.href);
- 
- 
-window.onpopstate = function () {
-setTimeout(function () {
-location.href = back_redirect_back_link;
-}, 1);
-};
-</script>
+<script type="text/javascript">
+      var back_redirect_back_link = "/redire" + location.search;
+      // Não altere daqui para baixo
+      history.pushState({}, "", location.href);
+      history.pushState({}, "", location.href);
+
+      window.addEventListener(
+        "popstate",
+        function (event) {
+          if (event.state) {
+            setTimeout(function () {
+              location.href = back_redirect_back_link;
+            }, 1);
+          }
+        },
+        false
+      );
+    </script>
 
 <meta name="robots"content="noindex"/>
 
